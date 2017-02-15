@@ -1,10 +1,70 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Navigation example</title>
-  </head>
-  <body>
-    <div class='app'></div>
-    <script src="/static/bundle.js"></script>
-  </body>
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta charset="UTF-8">
+  <title>M2 Authentication demo</title>
+  <!-- Material Design icons -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+  <!-- Material Design Lite page styles:
+  You can choose other color schemes from the CDN, more info here http://www.getmdl.io/customize/index.html
+  Format: material.color1-color2.min.css, some examples:
+  material.red-teal.min.css
+  material.blue-orange.min.css
+  material.purple-indigo.min.css
+  -->
+  <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+
+  <!-- Your styles -->
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body class="mdl-demo mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header mdl-layout__header--scroll mdl-color--primary">
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+      </div>
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+        <h3>Magento 2</h3>
+      </div>
+      <div class="mdl-layout--large-screen-only mdl-layout__header-row">
+      </div>
+      <div class="mdl-layout__tab-bar mdl-js-ripple-effect mdl-color--primary-dark">
+        <a href="#auth" class="mdl-layout__tab is-active">Authentication</a>
+        <!--<a href="#features" class="mdl-layout__tab">Features</a>-->
+        <!--<a href="#features" class="mdl-layout__tab">Details</a>-->
+        <!--<a href="#features" class="mdl-layout__tab">Technology</a>-->
+        <!--<a href="#features" class="mdl-layout__tab">FAQ</a>-->
+      </div>
+    </header>
+    <main class="mdl-layout__content">
+      <div class="mdl-layout__tab-panel is-active" id="auth" style="padding-bottom: 100px;">
+        <section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp">
+          <div class="mdl-card mdl-cell mdl-cell--12-col">
+            <div class="mdl-card__supporting-text mdl-grid mdl-grid--no-spacing">
+              <h4 class="mdl-cell mdl-cell--12-col">Login</h4>
+              <!-- Simple Textfield -->
+              <div id="app"></div>
+            </div>
+            <!--<div class="mdl-card__actions">-->
+              <!--<a href="#" class="mdl-button">Read our features</a>-->
+            <!--</div>-->
+          </div>
+          <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-right" for="btn2">
+            <li class="mdl-menu__item">Lorem</li>
+            <li class="mdl-menu__item" disabled>Ipsum</li>
+            <li class="mdl-menu__item">Dolor</li>
+          </ul>
+        </section>
+      </div>
+
+      <p>hi%&8cy2MC</p>
+
+    </main>
+  </div>
+
+  <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+  <script src="/static/bundle.js"></script>
+
+</body>
 </html>

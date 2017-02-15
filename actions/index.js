@@ -2,7 +2,7 @@ import * as ActionTypes from '../ActionTypes';
 
 export function login(query) {
   return {
-    type: ActionTypes.REQUESTED_TOKEN,
+    type: ActionTypes.TOKEN_FETCH,
     payload: {
       query
     }
@@ -11,20 +11,20 @@ export function login(query) {
 
 export function getCustomerData() {
     return {
-        type: ActionTypes.REQUESTED_CUSTOMER_DATA
+        type: ActionTypes.CUSTOMER_DATA_FETCH
     };
 }
 
-export function receiveCustomerData(payload) {
+export function customerDataFulfilled(payload) {
     return {
-        type: ActionTypes.RECEIVED_CUSTOMER_DATA,
+        type: ActionTypes.CUSTOMER_DATA_FULFILLED,
         payload: payload
     };
 }
 
-export function receiveCustomerDataError() {
+export function customerDataError() {
     return {
-        type: ActionTypes.RECEIVED_CUSTOMER_DATA_ERROR
+        type: ActionTypes.CUSTOMER_DATA_FETCH_ERROR
     };
 }
 
@@ -48,7 +48,7 @@ export function receiveUsers(users) {
 
 export function receiveToken(token) {
   return {
-    type: ActionTypes.RECEIVED_TOKEN,
+    type: ActionTypes.TOKEN_FULFILLED,
     payload: {
       token
     }
@@ -57,13 +57,13 @@ export function receiveToken(token) {
 
 export function revokeToken(token) {
   return {
-    type: ActionTypes.REVOKE_TOKEN
+    type: ActionTypes.TOKEN_REVOKE
   };
 }
 
 export function tokenError() {
   return {
-    type: ActionTypes.RECEIVED_TOKEN_ERROR
+    type: ActionTypes.TOKEN_FETCH_REJECTED
   };
 }
 

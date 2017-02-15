@@ -1,31 +1,22 @@
-import {ajax} from 'rxjs/observable/dom/ajax';
 import rx from 'rxjs';
 import * as ActionTypes from '../ActionTypes';
 import {receiveToken, tokenError} from '../actions';
+import {ajaxService} from "../services/ajax";
 
-const tokenUrl = `http://localhost:8090/rest/V1/integration/customer/token`;
+const tokenUrl = `/rest/V1/integration/customer/token`;
 
-export default function token(action$) {
-    return action$.ofType(ActionTypes.REQUESTED_TOKEN)
-        .map(action => {
-            return action.payload
-        })
-        .switchMap(payload => {
-            return ajax({
-                url: tokenUrl,
-                crossDomain: true,
-                method: 'POST',
-                body: payload.query,
-                headers: {
-                    'Content-Type': 'application/json; charset=UTF-8'
-                }
-            })
-            .map(resp => {
-                return receiveToken(resp.response);
-            })
-            .catch(e => {
-                return rx.Observable.of(tokenError())
-            })
-        });
+export default function token(action$, store) {
+    return action$.ofType(ActionTypes.TOKEN_FETCH)
+        .switchMap(action =>
+            ajaxService(store.getState())
+                .postJSON(tokenUrl, action.payload.query)
+                .delay(1000)
+                .map(resp => {
+                    return receiveToken(resp.response);
+                })
+                .catch(e => {
+                    return rx.Observable.of(tokenError())
+                })
+        );
 }
 

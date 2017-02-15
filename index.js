@@ -14,7 +14,7 @@ import { Router, Route, browserHistory, IndexRoute } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import configureStore from './configureStore';
 import App from './containers/App';
-import UserSearch from './containers/UserSearch';
+import Login from './containers/Login';
 import ReposByUser from './containers/ReposByUser';
 import Admin from './containers/Admin';
 
@@ -28,11 +28,11 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Route path='/' component={App}>
-        <IndexRoute component={UserSearch} />
+        <IndexRoute component={Login} />
         <Route path='repos/:user' component={ReposByUser} />
         <Route path='admin' component={Admin} />
       </Route>
     </Router>
   </Provider>,
-  document.querySelector('.app')
+  document.querySelector('#app')
 );

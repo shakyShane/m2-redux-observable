@@ -1,32 +1,50 @@
 import * as ActionTypes from '../ActionTypes';
 
 export default function login(state = {loading: false, token: '', customer: {}}, action) {
-    console.log(action);
     switch (action.type) {
-        case ActionTypes.REVOKE_TOKEN:
-            return Object.assign({}, state, {error: false, token: '', customer: {}});
+        case ActionTypes.TOKEN_REVOKE:
+            return Object.assign({}, state, {
+                error: false,
+                token: '',
+                customer: {}
+            });
             break;
-        case ActionTypes.REQUESTED_TOKEN:
-            return Object.assign({}, state, {loading: true, error: false, token: ''});
+
+        case ActionTypes.TOKEN_FETCH:
+            return Object.assign({}, state, {
+                loading: true,
+                error: false,
+                token: ''
+            });
             break;
-        case ActionTypes.RECEIVED_TOKEN:
+
+        case ActionTypes.TOKEN_FULFILLED:
             return Object.assign({}, state, {
                 loading: false,
                 token: action.payload.token
             });
             break;
-        case ActionTypes.RECEIVED_TOKEN_ERROR:
+
+        case ActionTypes.TOKEN_FETCH_REJECTED:
             return Object.assign({}, state, {
                 loading: false,
                 error: true
             });
             break;
-        case ActionTypes.RECEIVED_CUSTOMER_DATA:
+
+        case ActionTypes.CUSTOMER_DATA_FETCH:
             return Object.assign({}, state, {
-                loading: true,
+                loading: true
+            });
+            break;
+
+        case ActionTypes.CUSTOMER_DATA_FULFILLED:
+            return Object.assign({}, state, {
+                loading: false,
                 customer: action.payload
             });
             break;
+
     }
     return state;
 }
