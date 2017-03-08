@@ -1,8 +1,8 @@
 version: '2'
 services:
   nginx:
-    image: shakyshane/nginx-cors
+    image: shakyshane/nginx-cors-plus
     ports:
       - 8090:80
     environment:
-      - TARGET_DOMAIN=ce.demo.wearejh.com
+      - TARGET=http://ce.demo.wearejh.com
